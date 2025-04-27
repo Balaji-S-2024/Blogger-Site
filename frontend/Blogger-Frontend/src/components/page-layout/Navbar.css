@@ -1,0 +1,25 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    padding: 3px;
+}
+
+.logo-img{
+    vertical-align: middle;
+    width: 50px;
+}
+
+.sign-in-container{
+    padding: 10px;
+    margin: 10px 5px;
+    display: flex;
+}
+
+.btn{
+    padding: 5px;
+    border-style: none;
+    background-color: transparent;
+}
