@@ -8,9 +8,17 @@ function Navbar() {
   return (
     <>
         <div className='navbar'>
-            <div className='nav-item logo'><img src={blogger_logo} alt="" className='logo-img' /> <span className='logo-name'>Blogger</span></div>
+            <div className='nav-item logo'>
+              <a href="localhost:5173" className='blogger-link'>
+                <img src={blogger_logo} alt="" className='logo-img' />
+                <span className='logo-name'>Blogger</span>
+              </a>
+            </div>
+            <div className='nav-item'>
+              PUBLISH YOUR BLOGS
+            </div>
             <div className='nav-item sign-in-container'>
-                <button className='btn'>Sign In</button>
+                <button className='btn' type='button'>Sign In</button>
             </div>
         </div>
     </>

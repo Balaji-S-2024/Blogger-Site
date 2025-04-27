@@ -1,25 +1,56 @@
 .navbar{
     display: flex;
     justify-content: space-between;
+    background-color: #fb911a;
+    align-items: center;
+}
+
+.nav-item{
+    color: white;
 }
 
 .logo{
+    display: flex;
     padding: 3px;
+    justify-content: space-between;
 }
 
 .logo-img{
     vertical-align: middle;
     width: 50px;
+    border: 2px white solid;
+    border-radius: 20px;
+}
+
+.blogger-link{
+
+    font-weight: 50;
+}
+
+.logo-name{
+    margin: 5px;
 }
 
 .sign-in-container{
     padding: 10px;
-    margin: 10px 5px;
+    margin: 0px 5px;
     display: flex;
+    box-sizing: border-box;
 }
 
 .btn{
     padding: 5px;
     border-style: none;
-    background-color: transparent;
+    background-color: #fb8500;
+    color: white;
+    border: 1px white solid;
+    border-radius: 20px;
+    width: 75px;
+    max-width: 75px;
+    height: 35px;
+}
+
+.btn:hover{
+    background-color: #e27800;
+    border: gray 1px solid;
 }
