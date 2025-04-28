@@ -48,9 +48,11 @@
     width: 75px;
     max-width: 75px;
     height: 35px;
+    box-shadow: 0 0 3px gray;
 }
 
 .btn:hover{
-    background-color: #e27800;
+    background-color: #fc9d33;
     border: gray 1px solid;
+    box-shadow: 0 0 5px gray;
 }

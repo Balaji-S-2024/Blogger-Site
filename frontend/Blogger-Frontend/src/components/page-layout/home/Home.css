@@ -1,0 +1,46 @@
+.main{
+    padding: 2px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.header{
+    font-size: xx-large;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.motto{
+    font-size: large;
+}
+
+.btn-container{
+    margin: 10px;
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.create-blog-btn{
+    background-color: #fb8500;
+    border: none;
+    padding: 7px 10px;
+    box-shadow: 0 0 3px gray;
+    border-radius: 3px;
+    width: 150px;
+    height: 50px;
+}
+
+.create-blog-btn:hover{
+    background-color: #fc9d33;
+    border: gray 1px solid;
+    box-shadow: 0 0 5px gray;
+}

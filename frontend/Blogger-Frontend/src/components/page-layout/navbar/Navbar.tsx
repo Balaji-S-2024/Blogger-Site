@@ -1,5 +1,5 @@
 import React from 'react';
-import blogger_logo from '../../assets/blogger-logo.png';
+import blogger_logo from '../../../assets/blogger-logo.png';
 import './Navbar.css';
 
 
