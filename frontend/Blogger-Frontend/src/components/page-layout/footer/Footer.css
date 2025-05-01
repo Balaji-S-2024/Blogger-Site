@@ -2,6 +2,8 @@
     background-color: #485058;
     color: white;
     padding: 5px;
+    width: 100vw;
+    height: 50vh;
 }
 
 .footer-content{

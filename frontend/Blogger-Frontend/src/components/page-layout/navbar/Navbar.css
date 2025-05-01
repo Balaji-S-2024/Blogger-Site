@@ -23,8 +23,9 @@
 }
 
 .blogger-link{
-
     font-weight: 50;
+    text-decoration: none;
+    color: white;
 }
 
 .logo-name{
@@ -49,6 +50,7 @@
     max-width: 75px;
     height: 35px;
     box-shadow: 0 0 3px gray;
+    cursor: pointer;
 }
 
 .btn:hover{
