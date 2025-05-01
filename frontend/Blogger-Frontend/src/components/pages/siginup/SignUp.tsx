@@ -46,7 +46,7 @@ function SignUp() {
       ...prev,
       [e.target.name]: e.target.value,
     }))
-    console.log(formData);
+    // console.log(formData);
     
   }
 
@@ -166,7 +166,11 @@ function SignUp() {
 
                 <p>By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
 
-                <button type="submit" className='signup-btn'>Sign Up</button>
+                <button 
+                  type="submit" 
+                  className='signup-btn'>
+                    Sign Up
+                </button>
                 <p>Already have an account? <a href="/signin" className='goto'>Sign In</a></p>
             </form>
         </div>
