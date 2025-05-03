@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SignIn.css';
 import Navbar from '../../page-layout/navbar/Navbar';
 import Footer from '../../page-layout/footer/Footer';
+import axios from 'axios';
 
 
 function SignIn() {
@@ -15,6 +16,7 @@ function SignIn() {
     interface FormErrors {
       email: string;
       password: string;
+      commonError?: string;
     }
   
     const [formData, setFormData] = useState<FormData>({
@@ -25,6 +27,7 @@ function SignIn() {
     const [formErrors, setFormErrors] = useState<FormErrors>({
       email: '',
       password: '',
+      commonError: '',
     });
   
   
@@ -62,9 +65,20 @@ function SignIn() {
       e.preventDefault();
       if(validate()){
         console.log(formData);
-        
+
+        try {
+
+          const response = axios.post(`http:localhost:8080/user/login`).then((response) => {
+            console.log(response.data);
+          })
+          
+        } catch (error) {
+          console.error('Error submitting form:', error);
+          setFormErrors(prev => ({...prev, commonError: 'An error occurred while submitting the form.'}));
+          
+        }
+
         console.log('Form submitted successfully!');
-  
         
       }
       
@@ -75,6 +89,7 @@ function SignIn() {
       <Navbar />
         <div className='signin-container'>
             <form onSubmit={handleSubmit} className='signin-form signin-card'>
+              <p>{formErrors.commonError}</p>
               <label htmlFor="Email">Email</label>
               <input 
                 type="email" 

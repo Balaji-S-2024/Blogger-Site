@@ -3,9 +3,13 @@ import './SignUp.css';
 import Navbar from '../../page-layout/navbar/Navbar';
 import Footer from '../../page-layout/footer/Footer';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function SignUp() {
+
+  const navigate = useNavigate();
 
   interface FormData {
     firstName: string;
@@ -13,6 +17,7 @@ function SignUp() {
     email: string;
     password: string;
     confirmPassword: string;
+    userName?: string;
   }
 
   interface FormErrors {
@@ -21,6 +26,7 @@ function SignUp() {
     email: string;
     password: string;
     confirmPassword: string;
+    commonError?: string;
   }
 
   const [formData, setFormData] = useState<FormData>({
@@ -28,7 +34,8 @@ function SignUp() {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    userName: '',
   });
 
   const [formErrors, setFormErrors] = useState<FormErrors>({
@@ -36,7 +43,8 @@ function SignUp() {
     lastName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    commonError: ''
   });
 
 
@@ -92,7 +100,42 @@ function SignUp() {
   const handleSubmit= (e: React.FormEvent) => {
     e.preventDefault();
     if(validate()){
-      // console.log('Form submitted successfully!');
+      console.log(formData);
+      formData.userName = formData.email.split('@')[0];
+      fetch('http://localhost:8080/user/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then((response) => {
+        if(response.ok){
+         navigate('/'); 
+        }
+        if(response.status === 409){
+          setFormErrors(prev => ({...prev, commonError: 'User already exists! Please try again with a different email.'}));
+          throw new Error('User already exists');
+        }
+        else if(response.status === 400){
+          setFormErrors(prev => ({...prev, commonError: 'Bad Request! Please try again later.'}));
+          throw new Error('Bad Request');
+        }
+        else if (!response.ok) {
+          setFormErrors(prev => ({...prev, commonError: 'Server is Busy! Please try again later.'}));
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => { 
+        console.log('Success:', data);
+        // Handle success (e.g., redirect to another page)
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        // Handle error (e.g., show an error message to the user)
+      }
+      );
 
       
     }
@@ -106,6 +149,8 @@ function SignUp() {
       <Navbar />
         <div className='signup-container'>
             <form onSubmit={handleSubmit} className='sigup-form signup-card'>
+              <p>{formErrors.commonError}</p>
+                <h1 className='signup-header'>Create an account</h1>
                 <label htmlFor="FirstName">First Name</label>
                 <input 
                   type="text" 
