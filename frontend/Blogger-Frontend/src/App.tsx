@@ -1,11 +1,10 @@
 import './App.css';
 // import React from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Footer from './components/page-layout/footer/Footer';
-import Home from './components/pages/home/Home';
-import Navbar from './components/page-layout/navbar/Navbar';
+import LandingPage from './components/pages/home/LandingPage';
 import SignIn from './components/pages/signin/SignIn';
 import SignUp from './components/pages/siginup/SignUp';
+import Home from './components/pages/home/Home';
 
 function App() {
 
@@ -13,9 +12,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </>

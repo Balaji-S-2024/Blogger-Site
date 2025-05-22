@@ -30,6 +30,7 @@ function SignIn() {
       commonError: '',
     });
   
+    const[isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   
   
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
@@ -68,9 +69,22 @@ function SignIn() {
 
         try {
 
-          const response = axios.post(`http:localhost:8080/user/login`).then((response) => {
+          const response = axios.post(`http://localhost:8080/user/login`, formData).then((response) => {
+            console.log("response data - "+response.data);
             console.log(response.data);
-          })
+            console.log(response);
+            if(response.status = 202){
+
+              setIsLoggedIn(true);
+              console.log("Login successful!");
+
+              
+            }
+          }).catch((error) => { 
+            console.error('Error:', error);
+            setFormErrors(prev => ({...prev, commonError: 'Invalid email or password.'}));
+          }
+          );
           
         } catch (error) {
           console.error('Error submitting form:', error);

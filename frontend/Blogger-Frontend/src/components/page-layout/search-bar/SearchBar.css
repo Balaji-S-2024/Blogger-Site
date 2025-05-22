@@ -1,0 +1,59 @@
+.nav-bar{
+    background-color: rgb(248, 245, 245);
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.search-bar-nav{
+    display: flex;
+    margin: 0px 5px;
+    padding: 5px;
+    justify-content: space-between;
+    max-height: 60px;
+    align-items: center;
+}
+
+.menu-container{
+    justify-content: space-between;
+    display: flex;
+}
+
+.menu-img-container{
+    display: flex;
+    padding: 3px;
+    justify-content: space-between;
+    
+}
+
+.menu-icon{
+    width: 50px;
+    padding: 3px;
+    background-color: rgb(195, 199, 203);
+    box-sizing: border-box;
+    border-radius: 50%; 
+}
+
+.logo-img{
+    vertical-align: middle;
+    width: 50px;
+    border: 2px white solid;
+    border-radius: 20px;
+}
+
+.blogger-link{
+    font-weight: 50;
+    text-decoration: none;
+}
+
+.logo-name{
+    margin: 5px;
+    color: black;
+}
+
+.profile{
+    width: 50px;
+    border: black 1.5px solid;
+    border-radius: 50%;
+    box-shadow: 0 0 8px gray;
+}
