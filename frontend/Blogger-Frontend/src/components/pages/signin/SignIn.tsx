@@ -3,11 +3,13 @@ import './SignIn.css';
 import Navbar from '../../page-layout/navbar/Navbar';
 import Footer from '../../page-layout/footer/Footer';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function SignIn() {
 
 
+  const navigate = useNavigate();
   interface FormData {
       email: string;
       password: string;
@@ -77,6 +79,7 @@ function SignIn() {
 
               setIsLoggedIn(true);
               console.log("Login successful!");
+              navigate('/home');
 
               
             }
